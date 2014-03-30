@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Project 1
+  description: Description 1
+  client_id: 1
+
+two:
+  id: 2
+  name: Project 2
+  description: Description 2
+  client_id: 2
+  filed: true
+
+three:
+  id: 3
+  name: Project 3
+  description: Description 3
+  client_id: 1
+
+four:
+  id: 4
+  name: Project 4
+  description: Description 4
+  client_id: 2

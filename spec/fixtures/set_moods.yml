@@ -1,0 +1,5 @@
+one:
+  id: 1
+  set_mood_token: 123456789
+  user_id: 1
+  project_id: 1

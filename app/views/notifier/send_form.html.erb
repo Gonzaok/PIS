@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+        <h1><%= I18n.t('send_form.hi') %> <%= @contact.name %>,</h1>
+    <p>
+      <%= @message %>
+    </p>
+    <p>
+      <%= I18n.t('send_form.body1')  %> <%= link_to 'form', @url %> <%= I18n.t('send_form.body2')  %> <%= @project.name %>.<br/>
+    </p>
+
+    <p><%= I18n.t('send_form.goodbye') %></p>
+  </body>
+</html>

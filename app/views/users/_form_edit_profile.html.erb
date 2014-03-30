@@ -1,0 +1,66 @@
+<% user = current_user %>
+
+<%= printErrors(user) %>
+
+<div class="row span5">
+  <%= form_for(current_user, :url => {:controller => 'users', :action => 'update_profile'}, :html => {:class => "form-horizontal"}) do |f| %>
+    <div class="row">
+      <div class="control-group">
+        <label class="control-label" for="inputName"><%= I18n.t('general.name') %></label>
+        <div class="controls">
+          <%= f.text_field :name, :value => current_user.name %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="control-group">
+        <label class="control-label" for="inputName">Skype</label>
+        <div class="controls">
+           <%=f.text_field :skype, :value => current_user.skype %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="control-group">
+        <label class="control-label"><%= I18n.t('general.language') %></label>
+        <div class="controls">
+           <%= f.select(:language, options_for_select(language_opts, current_user.language)) %>
+        </div>
+      </div>
+    </div>
+    <div id="flip4" class="row">
+      <div class="span4 offset2">
+        <a class="btn btn-small"><i class="icon-plus-sign"></i><%= I18n.t('edit_profile.change_password')%></a>
+      </div>
+    </div>
+    <br/>
+    <div class="row panel4" id="panel4">
+      <div class="control-group">
+        <label class="control-label" for="inputName"><%= I18n.t('edit_profile.current_password') %></label>
+        <div class="controls">
+          <%= f.password_field :current_password %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputName"><%= I18n.t('edit_profile.new_password') %></label>
+        <div class="controls">
+          <%=f.password_field :password %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputName"><%= I18n.t('edit_profile.confirm_password') %></label>
+        <div class="controls">
+           <%=f.password_field :password_confirmation %>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    <div class="control-group">
+      <div class="controls">
+        <div class="row">
+          <%= f.submit "Update", :class => "btn btn-inverse"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

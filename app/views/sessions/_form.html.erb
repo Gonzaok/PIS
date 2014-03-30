@@ -1,0 +1,12 @@
+<%= form_tag :sessions do %>
+    <label><%= I18n.t('session.email') %>:</label>
+    <%= text_field_tag :email, params[:email], :placeholder => "email@email.com" %>
+    <label><%= I18n.t('session.password') %>:</label>
+    <%= password_field_tag :password, nil, :placeholder => "password" %>
+    <label class="checkbox">
+      <input type="checkbox"> <%= I18n.t('session.remember_me') %>
+    </label>
+    <button class="btn btn-success" type="submit"><%= I18n.t('session.login') %></button>
+    <br />
+    <small><%= link_to I18n.t('session.forgot_password'), new_password_reset_path %></small>
+<% end %>

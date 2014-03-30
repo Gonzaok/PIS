@@ -1,0 +1,24 @@
+<section id="Usuarios">
+  <div class="row">
+     <div class="span3 offset1">
+      <h3><%= @user.instance_of?(Contact) ? t('contact.contact') : t('user.view') %></h3>
+    </div>
+  </div>
+  <div class="span2 offset1">
+     <%= get_gravatar(@user,150) %>
+  </div>
+  <div class="span6">
+    <div class="well well-large">
+      <div class="bs-docs-example">
+       <dl class="dl-horizontal">
+        <dt><%= t('user.name') %></dt>
+          <dd><%= @user.name %></dd>
+          <dt><%= t('user.email') %></dt>
+          <dd><%= @user.email %></dd>
+          <dt><%= t('user.skype') %></dt>
+          <dd><%= @user.skype %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

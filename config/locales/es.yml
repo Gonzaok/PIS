@@ -1,0 +1,368 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  general:
+    home: Inicio
+    search: Buscar proyectos, clientes, etc
+    searcher: Buscador
+    description: Descripción
+    in: en
+    name: Nombre
+    client:
+      one: Cliente
+      other: Clientes
+    edit: Editar
+    date: Fecha
+    back: Atras
+    show: Mostrar
+    image: Imagen
+    destroy: Destruir
+    delete: Eliminar
+    nothing_found: No hay resultados
+    cancel: Cancelar
+    message: Message
+    are_you_sure: ¿Está seguro?
+    language: Idioma
+    show: Ver
+    or: o
+    your: tu
+    email: Email
+    e_mail: email
+    contacts: Contactos
+    project:
+      one: Proyecto
+      other: Proyectos
+    optional: Opcional
+    file: Archivar
+    modify: Modificar
+    subject: Asunto
+    invalid: Campo vacío o inválido
+    record_not_found: Registro no encontrado
+    access_denied: Acceso denegado
+
+  language:
+    en: Inglés
+    es: Español
+
+  contact:
+    create: Crear contacto
+    edit: Editar contacto
+    edit_self: Editar mis datos
+    contact: Contacto
+    skype: Skype
+    add_new: Agregar contacto
+    create_success: El contacto fue creado con éxito
+    update_success: El contacto fue actualizado con éxito
+    error_skype: Ya existe un Contacto con ese skype
+    error_email: Formato de email invalido
+    error_lenguage: Debe especificar el lenguaje del contacto
+    cup: Se agrego el contacto
+    toc: al cliente
+    cmod: Se modificó el contacto
+    ctoc: del cliente
+    old : Contacto inactivo
+
+  form:
+    forms: Formularios
+    new: Nuevo formulario
+    create: Crear formulario
+    edit: Editar formulario
+    preview: Vista Previa
+    send: Enviar
+    title: Título
+    italian: Italiano
+    list: Formularios
+    admin_url: Admin url
+    client_url: Cliente url
+    create_success: El formulario fue creado con éxito
+    update_success: El formulario fue actualizado con éxito
+    validates_name: Debe ingresar un nombre para el formulario
+    validates_description: Debe ingresar una descripcion para el formulario
+    validates_admin_url_presence: Debe especificar el link para los admins
+    validates_client_url_presence: Debe especificar el link para los clientes
+    validate_url_format: Formato de URL incorrecto
+    email_success: Emails enviados con éxito
+    summary: Ver resumen
+    summary_general: Ver resumen general
+    fup: Nuevo formulario agregado
+    summary_results: Resultados para
+    access_error: Errores encontrados al acceder al formulario
+    too_long: El largo del resumen excede el máximo permitido.
+
+  project:
+    create: Crear Proyecto
+    new: Nuevo proyecto
+    edit: Editar proyecto
+    list: Proyectos
+    projects: Proyectos
+    from: de
+    select_client: Seleccione un cliente
+    blackboard: Pizarrón
+    statistics: Estadísticas
+    validates_name: Debe especificar el nombre del Proyecto
+    validates_description: Debe dar una descripcion del Proyecto
+    validates_uniqueness: Ya existe un Proyecto con ese nombre
+    validates_client: Debe seleccionar un cliente
+    validates_start_date: Debe seleccionar una fecha de inicio del Proyecto
+    validates_end_date: Debe seleccionar una fecha de fin del Proyecto
+    validates_end_date_after_start_date: La fecha de fin no puede ser menor que la fecha de comienzo del proyecto
+    milestone_start_name: Inicio
+    milestone_start_desc: Inicio del proyecto
+    milestone_end_name: Fin
+    milestone_end_desc: Fin del proyecto
+    create_success: El proyecto fue creado con éxito
+    update_success: El proyecto fue actualizado con éxito
+    my_projects: Mis Proyectos
+    pup: Nuevo proyecto creado
+    filed: Projecto archivado
+
+  milestone:
+    create: Agregar hito
+    new: Nuevo hito
+    edit: Editar hito
+    list: Hitos
+    add: Agregar hito
+    milestones: Hitos
+    milestone_number: 'Hito #'
+    validates_name: Debe especificar el nombre del Hito
+    validates_description: Debe dar una descripción del Hito
+    create_success: El hito fue creado con éxito
+    update_success: El hito fue actualizado con éxito
+    destroy_success: El hito fue destruido con éxito
+    error_create: Campos incompletos
+    mup: Nuevo hito agregado a
+    mmod: Hito modificado en
+    date_past: No puede ingresar una fecha anterior a la actual
+
+  mood:
+    change: Cambiar de estado
+    new: Nuevo estado
+    happy: Feliz
+    satisfied: Contento
+    neutral: Neutral
+    sad: Triste
+    angry: Enojado
+    create_success: El estado fue creado con éxito
+    update_success: El estado fue actualizado con éxito
+    create_error: El estado no se pudo actualizar
+    cup: cambió su estado a
+    oncup: en
+
+  comment:
+    comment: Comentario
+    add: Agregar comentario
+    annotate: Comentar
+    view: Ver comentarios
+    more: Ver más
+    create_success: Comentario creado con exito
+    error_null: Debe ingresar al menos 1 caracter en el comentario
+    delete: ¿Borrar Comentario?
+    empty: Un comentario no puede ser vacío
+    error_create: Campos incompletos
+    cup: subió un comentario a
+    cmod: modificó un comentario en
+
+  content:
+    content: Contenido
+    add: Agregar contenido
+    modify: Modificar contenido
+    summary: Resúmen
+    type: Tipo
+    chat: Chat
+    conversation: Conversación
+    appreciation: Reconocimiento
+    message: Mensaje
+    all_message: Mensajes del contenido
+    criticism: Crítica
+    other: Otro
+    visibility: Visibilidad
+    visibility_success: Visibilidad actualizada con éxito
+    visibility_error: Error al modificar visibilidad
+    validates_summary: Debe incluir un resumen del contenido
+    validates_content: Debe incluir el contenido completo
+    added: agregó un
+    create_success: El contenido fue creado con éxito
+    update_success: El contenido fue actualizado con éxito
+    error_update: Campos incompletos al actualizar
+    error_create: Campos incompletos
+    cup: subió un
+    oncup: en
+    cmod: modificó un
+    too_long: "%{count} caracteres es el máximo permitido para el resumen"
+
+  client:
+    clients: Clientes
+    list: Listar clientes
+    create: Crear cliente
+    create_success: El cliente fue creado con éxito
+    update_success: El cliente fue actualizado con éxito
+    modify: Modificar
+    new: Nuevo Cliente
+    validates_presence_name: Debe especificar el nombre del cliente
+    validates_uniqueness_name: Ya existe un Cliente con ese nombre
+    validates_language: Debe especificar el lenguaje del cliente
+    create_success: El cliente fue creado con éxito
+    repeated_contact_mail: El email debe ser distinto para cada usuario
+    edit: Editar cliente
+    empty_name: Debes especificar el nombre del cliente
+    non_unique_name: Ya existe un Cliente con ese nombre
+    empty_language: Debes especificar el lenguaje del cliente
+    my_client: Mi Cliente
+    cup: Nuevo cliente creado
+    cmod: Cliente modificado
+
+  user:
+    create: Crear Usuario
+    users: Usuarios
+    change_profile: Modificar perfil
+    logout: Cerrar sesión
+    email: E-Mail
+    name: Nombre
+    new:  Nuevo contacto
+    view: Usuario Moove
+    skype: Skype
+    password: Contraseña
+    password_confirmation: Repetir contraseña
+    change_role_staff: Staff
+    change_role_admin: Admin
+    update_success: Su perfil ha sido modificado con éxito
+    incorrect_password: Password incorrecto
+    error_update: Campos incompletos
+    validates_presence_email: Debe especificar el mail del usuario
+    validates_uniqueness_email: Ya existe un usuario con ese mail
+    validates_format_email: El email ingresado no es valido
+    validates_name: Debe especificar el nombre del usuario
+    validates_skype: Debe especificar una cuenta Skype del usuario
+    validates_uniqueness_skype: Ya existe un usuario con ese skype
+    validates_repeated_email: No puede ingresar dos contactos con el mismo email
+    validates_repeated_skype: No puede ingresar dos contactos con el mismo skype
+    validates_confirmation_of_password: La constraseña no coinicide con la confirmacion
+    activities: Actividades
+    empty_password: Contraseña vacía
+
+  date:
+    start: Fecha de inicio
+    end: Fecha de fin
+    abbr_day_names:
+    - Dom
+    - Lun
+    - Mar
+    - Mié
+    - Jue
+    - Vie
+    - Sáb
+    abbr_month_names:
+    - Ene
+    - Feb
+    - Mar
+    - Abr
+    - May
+    - Jun
+    - Jul
+    - Ago
+    - Sep
+    - Oct
+    - Nov
+    - Dic
+    day_names:
+    - Domingo
+    - Lunes
+    - Martes
+    - Miércoles
+    - Jueves
+    - Viernes
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %b'
+    month_names:
+    - Enero
+    - Febrero
+    - Marzo
+    - Abril
+    - Mayo
+    - Junio
+    - Julio
+    - Agosto
+    - Septiembre
+    - Octubre
+    - Noviembre
+    - Diciembre
+    order:
+    - :day
+    - :month
+    - :year
+
+  session:
+    login_email_error: E-mail o contraseña incorrectos
+    login_password_error: E-mail o contraseña incorrectos
+    login_openid_error: No se pudo conectar con el servidor
+    login_openid: Tambien te puedes loguear con OpenID
+    email: E-mail
+    password: Contraseña
+    remember_me: Recuerdame
+    forgot_password: Olvidaste tu contraseña?
+    login: Ingresar
+
+  visibility:
+    client: Cliente
+    staff: Personal
+
+  password_reset:
+    send_email: Se ha enviado un e-mail con las instrucciones para cambiar la contraseña
+    success: La contraseña ha sido cambiada con éxito
+    error: El tiempo para cambiar la contraseña ha expirado
+    url_reset: Para cambiar la contraseña, haga click en el siguiente link
+    url_notice:  Si usted no solicito cambiar su contraseña, puede ignorar este e-mail, su contraseña seguirá siendo la misma
+    title: Escribe tu email y te enviaremos un link para resetear la contraseña
+    button_reset: Resetear contraseña
+
+  set_mood:
+    send_email: Se ha enviado un e-mail a todos los contactos preguntando por su estado de ánimo
+    button: Solicitar Estados
+    send: Enviar
+    happy: Estoy muy feliz!
+    satisfied: Estoy satisfecho
+    neutral: Estoy normal
+    sad: Estoy preocupado
+    angry: Estoy enojado
+    how_are: ¿cómo te sientes?
+    in_case: En caso de que no lo sepas, contamos con una plataforma llamada
+    made_just: cuyo cometido es conocer tu satisfacción
+    satisfaction: Tu satisfacción es muy importante para nosotros, por eso queremos saber como te sientes respecto al proyecto
+    clicking: Haciendo click en una de las imágenes te dirigirás hacia
+    edit_subscritpion: Edita tu suscripción
+    unsubscribe: Elimina tu suscripción
+    this_is: No es necesario que lo hagas pero, ¿podrías decirnos por qué te sientes
+    we_would: Realmente lo valoraríamos.
+    cant_send_email: El email no puede ser enviado.
+    send_mood: Comentar
+    comment: Comentario
+
+  recent_activity:
+    recent_act_mail_subject: moove-iT - Actividad Reciente
+    recent_act: Actividad Reciente
+    view_full_list: Ver listado completo
+    no_activity: No hubo actividad esta semana.
+
+  edit_profile:
+    change_password: Cambiar contraseña
+    current_password: Contraseña actual
+    new_password: Nueva contraseña
+    confirm_password: Confirmación
+
+  search:
+    result: "%{total} resultados en %{time} segundos"
+
+  send_password:
+    subject: Contraseña para acceder a tu cuenta en Focus
+    message: "La nueva contraseña para tu cuenta es %{pass}"
+    welcome: "Hola %{pass}, bienvenido a Focus"
+
+  send_form:
+    hi: Hola
+    goodbye: Gracias y que tenga un buen dia!
+    body1: "Para ayudarnos a seguir mejorando nuestros servicios, por favor complete este "
+    body2: ", en relación con el proyecto "

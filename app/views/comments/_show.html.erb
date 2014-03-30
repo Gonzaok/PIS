@@ -1,0 +1,37 @@
+ <!-- Se setea el estilo del contenedor de mensajes segun la cantidad de mensajes -->
+
+<% num = comment_count(x) %>
+
+<% comms = all ? list_all(x) : list_comments(x,10) %>
+
+
+<div class="comment_container" <% if not all and num >= 10  %> style="display:none" <%end%> >
+  <div class="comentarios-contenido">
+  <% comms.each do |m| %>
+      <blockquote>
+        <% if (current_user.is_admin or check_date(m)) && !p.filed %>
+          <i class="icon-remove img-remove-comment float-right"></i>
+          <i class="icon-edit img-pencil-comment float-right"></i>
+
+          <input type="hidden" class="comment-id" value=<%= m.id %> />
+        <% end %>
+				<div class="comment-content">
+				      <%= m.comment %>
+				</div>
+          <small><%= get_rounded_gravatar(m.user,25) %> <span class"comment-username"><% if m.user != nil %><%= m.user.name %><% else %> <%= t('contact.old') %> <% end %></span> </small>
+
+      </blockquote>
+
+  <% end %>
+  </div>
+
+   <% if not all and num > 10  %>
+
+    <%= link_to I18n.t('comment.more'), {:controller => 'contents', :action => 'show_all_comments',  :id => x.id}, :class => 'see_all_comments'%>
+
+   <%end%>
+
+</div>
+
+<%= hidden_field_tag 'delete_comment', I18n.t("comment.delete")  %>
+<%= hidden_field_tag 'empty_comment', I18n.t("comment.empty")  %>

@@ -1,0 +1,48 @@
+<% @milestone = Milestone.new %>
+
+<%= form_for(@milestone, :html => { :class => "form-horizontal new-milestone-form" }, :url=> {:controller => 'milestones', :action =>'create', :project_id => @project.id}) do |f| %>
+  <h3 class="offset1"><%= t('milestone.create') %></h3>
+  <% if @milestone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@milestone.errors.count, "error") %> prohibited this milestone from being saved:</h2>
+
+      <ul>
+      <% @milestone.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail"><%= t('general.name') %></label>
+    <div class="controls">
+      <%= f.text_field :name, :size => "2"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword"><%= t('general.description') %></label>
+    <div class="controls">
+      <%= f.text_area :description, :size => "3"%>
+    </div>
+  </div>
+  <div class="control-group">
+      <label class="control-label" for="inputName">
+        <%= f.label t('general.date') %>
+      </label>
+      <div class="controls">
+        <% date = Date.current %>
+        <div class="input-append date focus-datepicker" id="inputInicio" data-date=<%= date.strftime("%d-%m-%Y") %> data-date-format="dd-mm-yyyy">
+          <%= f.text_field :date,  :readonly=>"readonly", :class => "span2", :value => date.strftime("%d-%m-%Y") %>
+          <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+      </div>
+    </div>
+  <div class="control-group">
+    <div class="controls">
+      <div class="row">
+        <%= f.submit t('milestone.create'), :class => "btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>

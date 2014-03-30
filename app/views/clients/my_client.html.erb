@@ -1,0 +1,33 @@
+ <div class="row title-client">
+    <div class="span2 offset1">
+      <%= image_client(@client,:big) %>
+    </div>
+
+    <div class="span9">
+      <h2> <%=@client.name%> </h2>
+      <small><%=I18n.t("language.#{@client.language}")%></small>
+    </div>
+  </div>
+
+	<%@client.projects.each do |project|%>
+
+    <div class="row fila-proyecto">
+      <div class="span4 offset1">
+        <div class="row cliente-proyecto-carita">
+
+          <div class="span1">
+            <%= show_mood(project) %>
+          </div>
+
+          <div class="span3 nombre-proyecto">
+            <strong><%= link_to project.name, :controller => "projects", :action => "show", :id => project.id %> </strong>
+            <div class="span3">
+            	<small><%= show_comment_mood(project)%></small>
+          	</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  <%end%>

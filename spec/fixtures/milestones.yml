@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Project's start
+  description: Description 1
+  date: 2013-01-01
+  project_id: 1
+  id: 1
+
+two:
+  id: 2
+  name: Project's end
+  description: Description 2
+  date: 2014-01-01
+  project_id: 1
+  id: 2

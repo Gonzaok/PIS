@@ -1,0 +1,35 @@
+<%= form_for :form_send, :url=> {:controller => 'forms', :action =>'send_form', :id => @form_id}, :html => { :class => "form-horizontal"} do |f|%>
+    <div class="control-group">
+		  <label class="control-label"><%= I18n.t('general.client',:count => 1) %></label>
+		  <div class="controls">
+			  <%= f.select("clients", @clients) %>
+		  </div>
+    </div>
+
+    <div class="control-group">
+		  <label class="control-label"><%= I18n.t('general.project',:count => 1) %></label>
+		  <div class="controls">
+        <%= f.select("projects",[]) %>
+		  </div>
+    </div>
+
+  	<div class="control-group">
+		  <label class="control-label"> <%= I18n.t 'general.subject' %> </label>
+		  <div class="controls">
+        <%= f.text_field :subject %>
+		  </div>
+	  </div>
+
+  	<div class="control-group">
+		  <label class="control-label"><%= I18n.t 'general.message' %></label>
+		  <div class="controls">
+        <%= f.text_area :message, :size => "60x5" %>
+		  </div>
+	  </div>
+
+    <div class="control-group guardar-cliente">
+      <div class="controls">
+    	  <%= f.submit t('form.create'), :class=>"btn btn-large btn-inverse" %>
+      </div>
+    </div>
+<% end %>

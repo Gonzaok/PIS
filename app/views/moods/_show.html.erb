@@ -1,0 +1,110 @@
+<div class="span2 change-mood-btn">
+  <%= show_mood(@project,:large) %>
+  	<%if is_contact? && !@project.filed%>
+    <span class="center-change-mood"><%= t('mood.change') %>:</span>
+    <div class="btn-group pull-right" >
+      <button class="btn" id="change-enojado" data-placement="bottom"
+        data-content='
+          <%= form_for :mood, :url => { :controller => "moods", :action => "create",:id_project => @project, :mood => "Angry" } do |f| %>
+              <label><%= t('comment.comment') %></label>
+              <%= text_area :comment, params[:comment], :rows => 3, :placeholder => t('general.optional') %>
+              <button type="submit" class="btn btn-small btn-inverse"><%= t('mood.change') %></button>
+          <% end %>'
+        data-original-title="<%= t('mood.new') %>: <img width='25px' src='/assets/angry-sml.png' title='<%= t('mood.angry') %>' alt='<%= t('mood.angry') %>' />">
+        <img src="/assets/angry-sml.png" title="<%= t('mood.angry') %>" alt="<%= t('mood.angry') %>" />
+      </button>
+      <button class="btn" id="change-triste" data-placement="bottom"
+        data-content='
+          <%= form_for :mood, :url => { :controller => "moods", :action => "create",:id_project => @project, :mood => "Sad" } do |f| %>
+              <label><%= t('comment.comment') %></label>
+              <%= text_area :comment, params[:comment], :rows => 3, :placeholder => t('general.optional') %>
+              <button type="submit" class="btn btn-small btn-inverse"><%= t('mood.change') %></button>
+          <% end %>'
+        data-original-title="<%= t('mood.new') %>: <img width='25px' src='/assets/sad-sml.png' title='<%= t('mood.sad') %>' alt='<%= t('mood.sad') %>' />">
+        <img src="/assets/sad-sml.png" title="<%= t('mood.sad') %>" alt="<%= t('mood.sad') %>" />
+      </button>
+      <button class="btn" id="change-neutral" data-placement="bottom"
+        data-content='
+          <%= form_for :mood, :url => { :controller => "moods", :action => "create",:id_project => @project, :mood => "Neutral" } do |f| %>
+            <label><%= t('comment.comment') %></label>
+            <%= text_area :comment, params[:comment], :rows => 3, :placeholder => t('general.optional') %>
+            <button type="submit" class="btn btn-small btn-inverse"><%= t('mood.change') %></button>
+          <% end %>'
+        data-original-title="<%= t('mood.new') %>: <img width='25px' src='/assets/neutral-sml.png' title='<%= t('mood.neutral') %>' alt='<%= t('mood.neutral') %>' />">
+        <img src="/assets/neutral-sml.png" title="<%= t('mood.neutral') %>" alt="<%= t('mood.neutral') %>" />
+      </button>
+      <button class="btn" id="change-contento" data-placement="bottom"
+        data-content='
+          <%= form_for :mood, :url => { :controller => "moods", :action => "create",:id_project => @project, :mood => "Satisfied" } do |f| %>
+            <label><%= t('comment.comment') %></label>
+            <%= text_area :comment, params[:comment], :rows => 3, :placeholder => t('general.optional') %>
+            <button type="submit" class="btn btn-small btn-inverse"><%= t('mood.change') %></button>
+          <% end %>'
+        data-original-title="<%= t('mood.new') %>: <img width='25px' src='/assets/satisfied-sml.png' title='<%= t('mood.satisfied') %>' alt='<%= t('mood.satisfied') %>' />">
+        <img src="/assets/satisfied-sml.png" title="<%= t('mood.satisfied') %>" alt="<%= t('mood.satisfied') %>" />
+      </button>
+      <button class="btn" id="change-feliz" data-placement="bottom"
+        data-content='
+          <%= form_for :mood, :url => { :controller => "moods", :action => "create",:id_project => @project, :mood => "Happy" } do |f| %>
+            <label><%= t('comment.comment') %></label>
+            <%= text_area :comment, params[:comment], :rows => 3, :placeholder => t('general.optional') %>
+            <button type="submit" class="btn btn-small btn-inverse"><%= t('mood.change') %></button>
+          <% end %>'
+        data-original-title="<%= t('mood.new') %>: <img width='25px' src='/assets/happy-sml.png' title='<%= t('mood.happy') %>' alt='<%= t('mood.happy') %>' />">
+        <img src="/assets/happy-sml.png" title="<%= t('mood.happy') %>" alt="<%= t('mood.happy') %>" />
+      </button>
+    </div>
+    <%end%>
+</div>
+
+<script>
+  // popover demo
+  $("#change-feliz")
+    .popover()
+    .click(function(e) {
+      $("#change-contento").popover("hide");
+      $("#change-neutral").popover("hide");
+      $("#change-triste").popover("hide");
+      $("#change-enojado").popover("hide");
+      e.preventDefault()
+    })
+  $("#change-contento")
+  .popover()
+  .click(function(e) {
+    $("#change-feliz").popover("hide");
+    $("#change-neutral").popover("hide");
+    $("#change-triste").popover("hide");
+    $("#change-enojado").popover("hide");
+    e.preventDefault()
+  })
+  $("#change-neutral")
+  .popover()
+  .click(function(e) {
+    $("#change-feliz").popover("hide");
+    $("#change-contento").popover("hide");
+    $("#change-triste").popover("hide");
+    $("#change-enojado").popover("hide");
+    e.preventDefault()
+  })
+  $("#change-triste")
+    .popover()
+    .click(function(e) {
+      $("#change-feliz").popover("hide");
+      $("#change-neutral").popover("hide");
+      $("#change-contento").popover("hide");
+      $("#change-enojado").popover("hide");
+      e.preventDefault()
+    })
+  $("#change-enojado")
+  .popover()
+  .click(function(e) {
+    $("#change-feliz").popover("hide");
+    $("#change-neutral").popover("hide");
+    $("#change-triste").popover("hide");
+    $("#change-contento").popover("hide");
+    e.preventDefault()
+  })
+
+  $('span.content-date').tooltip();
+  $('.editar-o-eliminar').tooltip();
+</script>

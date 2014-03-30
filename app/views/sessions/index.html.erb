@@ -1,0 +1,24 @@
+<div class="login-box container">
+  <div class="row login-row">
+
+    <div class="message_box">
+      <% flash.each do |name, msg| %>
+        <div class="message">
+            <div class="alert alert-<%=name%>">
+              <button class="close" data-dismiss="alert" type="button">x</button>
+              <%= content_tag :div, msg%>
+            </div>
+        </div>
+      <% end %>
+      <% flash.clear %>
+    </div>
+    <div class="span3 offset1">
+      <%= render 'form' %>
+    </div>
+    <div class="offset2 openid-login">
+        <p><%= I18n.t('session.login_openid') %></p>
+        <p><%= link_to I18n.t('session.login'), new_session_path, :class=>"btn btn-success" %></p>
+    </div>
+
+  </div>
+</div>

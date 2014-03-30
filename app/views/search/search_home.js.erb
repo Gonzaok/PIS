@@ -1,0 +1,23 @@
+function order(a,b)
+{
+   var A = a.value.toLowerCase();
+   var B = b.value.toLowerCase();
+   if ( A < B ) return -1;
+   if (A > B) return  1;
+   return 0;
+}
+
+[
+  <% @projects.each do |project| %>
+    { id: <%= project.id %>, value: '<%= project.name %>', type: 'project', uri: '<%= project_path(project)  %>',extra: '<%= show_mood(project,:large).to_s.match(/src=\"([^\"]*)\"/)[1]%>'},
+  <% end %>
+  <% @clients.each do |client| %>
+    { id: <%= client.id %>, value: '<%= client.name %>', type: 'client', uri: '<%= client_path(client)  %>', extra: '<%= client.image_file_name ? client.image.url(:big) : "/assets/missing_big.png" %>' },
+  <% end %>
+  <% @users.each do |user| %>
+    { id: <%= user.id %>, value: '<%= user.name %>', type: 'user', uri: '<%= user_path(user)  %>', extra: '<%= get_gravatar_url(user,50) %>' },
+  <% end %>
+  <% @contents.each do |content| %>
+    { id: <%= content.id %>, value: '<%= content_part(content.summary,@query) %>', type: 'content', uri: '<%= url_for(:controller => 'contents', :action => 'show_all_comments',  :id => content.id) %>', extra:'/assets/star-on-large.png' },
+  <% end %>
+].sort(order).slice(0,<%=@limit%>)

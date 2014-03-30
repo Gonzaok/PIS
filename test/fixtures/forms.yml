@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  admin_url: MyText
+  client_url: MyText
+  language: MyString
+  date: 2012-10-13
+
+two:
+  title: MyString
+  description: MyText
+  admin_url: MyText
+  client_url: MyText
+  language: MyString
+  date: 2012-10-13

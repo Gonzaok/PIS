@@ -1,0 +1,61 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.close_edit_comment{
+  position: relative;
+  right: 360px;
+  border: 1px solid;
+  padding: 0px 2px 0px 2px;
+  border-radius: 5px;
+}
+
+.see_all_comments{
+  margin-left: 50%;
+  float: left;
+  width: 100%;
+}
+
+.img_pencil_comment_disable{
+  position: relative;
+  right: -515px;
+  cursor: pointer;
+  height: 20px; 
+  width: 20px; 
+}
+
+.img_edit_comment{
+  float: right;
+  position: relative;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  right: -22px;
+  top: 22px;
+  border-radius: 6px
+}
+
+.img-remove-comment{
+  float: right;
+  cursor: pointer;
+
+}
+
+.input_comment{
+  width: 90%;
+}
+
+#blockquote {
+  border-left: 5px solid #EEE;
+  margin: 10px 0 0 16px;
+  padding: 0 0 0 15px;
+}
+
+.comment{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  word-wrap: break-word;
+}

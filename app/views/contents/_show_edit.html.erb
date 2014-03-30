@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="span6">
+    <%= form_for :content, :html => { :class => "form-horizontal nuevo-contenido-form" } , :url => { :controller => 'contents', :action => 'update', :id => @proyecto, :id_content => x} do |f| %>
+
+    <% if not errors %> <button class="close close_modificarCont" type="button">×</button> <% end %>
+    <h4><%= t('content.modify') %></h4>
+    <div class="control-group">
+      <label class="control-label" for="inputEmail"><%= t('content.summary') %></label>
+      <div class="controls">
+        <%= f.text_area :summary, :size => "2", :value => x.summary %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputPassword"><%= t('content.content') %></label>
+      <div class="controls">
+        <%= f.text_area :content, :size => "3", :value => x.content %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputPassword"><%= t('content.type') %></label>
+      <div class="controls">
+         <%= select(:content, :content_type, [["#{t('content.chat')}", "chat"], ["#{t('general.email')}", "email"], ["#{t('content.conversation')}", "conversacion"], ["#{t('content.appreciation')}", "reconocimiento"], ["#{t('content.message')}", "mensaje"], ["#{t('content.criticism')}", "critica"], ["#{t('content.other')}", "otro"]], :selected => x.content_type) %>
+      </div>
+    </div>
+    <div class="controls">
+      <%= f.submit t('content.modify'), :class => "btn" %>
+    </div>
+  <% end %>
+</div>
+</div>

@@ -1,0 +1,41 @@
+<%= form_for :content, :html => { :class => "form-horizontal new-content-form" } , :url => { :controller => 'contents', :action => 'create', :project_id => @project } do |f| %>
+  <h3 class="offset1"><%= t('content.add') %></h3>
+  <div class="control-group">
+    <label class="control-label" for="inputEmail"><%= t('content.summary') %></label>
+    <div class="controls">
+      <%= f.text_area :summary, :size => "2"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword"><%= t('content.content') %></label>
+    <div class="controls">
+      <%= f.text_area :content, :size => "3"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword"><%= t('content.type') %></label>
+    <div class="controls">
+      <%= select(:content, :content_type, [["#{t('content.chat')}", "chat"], ["#{t('general.email')}", "email"], ["#{t('content.conversation')}", "conversacion"], ["#{t('content.appreciation')}", "reconocimiento"], ["#{t('content.message')}", "mensaje"], ["#{t('content.criticism')}", "critica"], ["#{t('content.other')}", "otro"]]) %>
+    </div>
+  </div>
+  <% if current_user.is_admin? %>
+    <div class="control-group">
+      <label class="control-label" for="visibility"><%= t('content.visiblity') %></label>
+        <div class="controls">
+          <label class="checkbox inline">
+            <%= check_box_tag 'visibility_client', 1, checked = false%> <%= @project.client_name %>
+          </label>
+          <label class="checkbox inline">
+            <%= check_box_tag 'visibility_mooveit', 1, checked = false%> Moove-It
+          </label>
+        </div>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <div class="controls">
+      <div class="row">
+        <%= f.submit t('content.add'), :class => "btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>

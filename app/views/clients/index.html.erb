@@ -1,0 +1,24 @@
+<section id="Clientes">
+  <div class="row">
+    <div class="span5 offset1">
+      <h3><%= I18n.t('client.clients') %> <%= link_to I18n.t('client.create') , new_client_path %></h3>
+    </div>
+  </div>
+<% Client.all.each do |c| %>
+    <div class="row fila-proyecto">
+      <div class="span6 offset1">
+        <div class="row cliente-proyecto-carita">
+          <div class="span1">
+             <%= image_client(c,:small) %>
+          </div>
+          <div class="span3 nombre-proyecto">
+             <strong> <%= link_to c.name, c %> </strong>
+          </div>
+          <div class="span2 edit-element">
+            <%= link_to I18n.t('general.edit'),{:controller => "clients", :action => "edit", :id => c.id },:class => "btn" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</section>

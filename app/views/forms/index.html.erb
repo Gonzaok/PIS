@@ -1,0 +1,26 @@
+<section id="Formularios">
+  <div class="row">
+    <div class="span5 offset1">
+      <h3> <%= I18n.t('form.forms') %> <%= link_to I18n.t('form.create'), new_form_path  %></h3>
+    </div>
+  </div>
+<% @forms.each do |form| %>
+
+  <div class="row fila-proyecto">
+    <div class="span2 offset1">
+      <div class="row nombre-contacto">
+        <strong><%= link_to form.title , form.admin_url, :target => '_blank' %></strong> (<%= form.date %>)
+        <p><small><%= form.description %></small></p>
+      </div>
+    </div>
+    <div class="span5 form-action">
+      <%= link_to I18n.t('form.send'), {:controller => 'forms', :action => 'send_view', :id => form.id}, :class => "btn btn-success" %>
+      <%= link_to I18n.t('form.summary'), {:controller => 'forms', :action => 'summary', :id => form.id}, :class => "btn btn-success" %>
+      <%= link_to I18n.t('form.summary_general'), form.admin_url.gsub(/ccc\?/,'gform?').gsub(/#.*$/,'&gridId=0#chart'), :target => '_blank', :class => "btn btn-success"%>
+    </div>
+    <div class="span1 offset2">
+      <%= link_to I18n.t('general.destroy'), {:controller => 'forms', :action => 'destroy', :id => form.id},:class => "btn btn-danger pull-right", :confirm => I18n.t('general.are_you_sure'), :method => :delete, :style => 'padding:2px 14px;' %>
+    </div>
+  </div>
+<% end %>
+</section>

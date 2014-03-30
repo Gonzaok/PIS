@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row main-row public-main">
+    <div class="row">
+      <div class="pull-right">
+        <a href="/sessions" class= "btn btn-success" style="margin-right:10px;margin-top:10px;">Login</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="offset1 span10">
+        <div class="page-header">
+          <h2>
+            <%=I18n.t('set_mood.this_is')%> <%=I18n.t("mood."+@mood.mood.downcase).downcase%>?
+          </h2>
+          <h3>
+            <%=I18n.t('set_mood.we_would')%>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <%= form_for(@mood) do |f| %>
+    <div class="row">
+      <div class="span10 offset1">
+        <%= f.label t('set_mood.comment') %>
+        <%= f.text_area :comment, :size => "3", :class => "span10 add-extra-comment-form" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span4 offset5">
+        <%= button_tag t('set_mood.send_mood'), :type => :submit, :class => "btn btn-large btn-inverse" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+
+$(document).ready( function(){
+var last = null;
+    var _keyCodes = {
+    DOWN: 40,
+    ENTER: 13 || 108,
+    ESCAPE: 27,
+    UP: 38
+  };
+    $('.search-query').keyup(function(e){
+      e.stopPropagation();
+      e.preventDefault();
+
+      switch (e.keyCode) {
+        case _keyCodes.DOWN:
+          next();
+          break;
+        case _keyCodes.UP:
+          prev();
+          break;
+          case _keyCodes.ENTER:
+             var url = $('#search_result').find('.active');
+             if (url.length == 0)
+              window.location.replace('/<%= I18n.locale %>/search/index?search='+this.value+'&projects=true&users=true&clients=true&contents=true');
+             else window.location.replace(url.children().first().attr("href"));
+             break;
+          case _keyCodes.ESCAPE:
+            $('.typeahead').remove();
+            break;
+          default:
+            update_search(this.value);
+        }
+      });
+
+    function update_search(query) {
+
+      if (last == query)
+        return;
+
+      last = query;
+
+
+      $.get(
+        '/<%= I18n.locale %>/search/search_home',
+        {
+          search_focus: query
+        },
+        function(data) {
+          var results = eval(data);
+
+          if (results.length == 0)
+          {
+              $('#search_result').html('');
+              return;
+          }
+
+          var result_list = $('<ul class="typeahead dropdown-menu">').show();
+
+
+          for (result in results) {
+            result = results[result];
+
+              var q = query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
+              var res = result.value.replace(new RegExp('(' + q + ')', 'ig'), function ($1, match) {
+                return '<strong>' + match + '</strong>';
+              });
+
+            result_list.append('<li class="search-item" style="width:300px;"><a href="'+result.uri+'">'+'<img src="'+result.extra+'" style="margin-right:15px;height:50px;width:50px;" />'+res+'</a></li>');
+          }
+
+          $('#search_result').html(result_list);
+
+          $('.search-item').on('mouseenter',function(){
+            var menu = $('#search_result');
+            menu.find('.active').removeClass('active');
+            $(this).addClass('active');
+          });
+
+          $('.search-item').on('mouseleave',function(){
+            $(this).removeClass('active');
+          });
+        }
+      );
+      $('body').click(function() {
+          $('.typeahead').remove();
+      });
+
+
+    }
+
+    function next () {
+      var menu = $('#search_result');
+      var active = menu.find('.active').removeClass('active');
+      var next = active.next();
+
+      if (active == [])
+        next =  menu.find('li').first();
+
+      if (!next.length) {
+        next = $(menu.find('li')[0]);
+      }
+
+      next.addClass('active');
+    }
+
+    function prev() {
+      var menu = $('#search_result');
+      var active = menu.find('.active').removeClass('active');
+      var prev = active.prev();
+
+      if (!prev.length) {
+        prev = menu.find('li').last();
+      }
+
+      prev.addClass('active');
+    }
+});

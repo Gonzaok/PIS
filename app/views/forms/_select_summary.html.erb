@@ -1,0 +1,27 @@
+<form class="form-horizontal">
+
+  <div class="control-group">
+    <label class="control-label"><%= I18n.t 'general.client',:count => 1 %></label>
+    <div class="controls">
+      <%= select("form_summary","clients", @clients) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label"><%= I18n.t 'general.project',:count => 1 %></label>
+    <div class="controls">
+      <%= select("form_summary", "projects",[]) %>
+    </div>
+  </div>
+
+   <div class="control-group">
+    <div class="controls">
+      <div class="btn-toolbar">
+    <%= link_to_function I18n.t('form.summary'), "window.location.replace(\"summary_token?id=#{@form.id}&proj_id=\"+$(\"#form_summary_projects\").val());", :class => "btn btn-large btn-success", :type => 'button' %>
+
+      </div>
+    </div>
+  </div>
+
+
+</form>

@@ -1,0 +1,46 @@
+<div class="span3 offset1">
+  <div class="row">
+    <div class="pull-right">
+      <span> <% if x.user != nil %> <%= user_name(x.user_id) %> <% else %> <%= t('contact.old') %> <% end %></span> <%= t('content.added') %> <%= x.content_type %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="pull-right">
+      <span class="content-date" data-placement="bottom" data-original-title="<%= x.created_at.strftime("%d/%m/%Y %R %Z") %><%= x.created_at.strftime("%z") %>"><%= x.created_at.strftime("%e %b %Y - %R") %></span>  -  <a href="#">#</a>
+    </div>
+  </div>
+  <% if !p.filed %>
+    <%=star_ranking(x)%>
+  <% end %>
+</div>
+<div class="span7">
+  <div class="resumen-contenido">
+    <div id="resumen">
+      <%= x.summary %>
+    </div>
+  </div>
+  <div class="contenido-contenido">
+  	<%= x.content %>
+  </div>
+
+  <div class="row">
+    <div class="span2 action-options">
+      <% if current_user.is_admin and !p.filed %>
+        <div class="btn-group pull-left editar-o-eliminar" data-placement="bottom" >
+          <a class="btn dropdown-toggle btn-mini" data-toggle="dropdown" href="#">
+            <i class="icon-edit"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to_function t('general.edit'), "$(this)#{'.parent()'*7}.prev().toggle(500)" %></li>
+            <li class="divider"></li>
+            <li><%= link_to t('general.delete'), x, method: :delete, data: { confirm: "#{t('general.are_you_sure')}" } %></li>
+          </ul>
+        </div>
+        <%= user_contact?(current_user, x, p) %>
+      <% end %>
+    </div>
+    <div class="span2 offset3 pull-right view-comment-link">
+      <a class="see_comments" style="cursor:pointer;"><%= t('comment.view') %>(<%= comment_count(x) %>)</a>
+    </div>
+  </div>
+</div>

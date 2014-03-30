@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Client 1
+  language: English
+  image_file_name: "AnImage.png"
+  
+two:
+  id: 2
+  name: Client 2
+  language: English

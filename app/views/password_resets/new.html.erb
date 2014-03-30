@@ -1,0 +1,14 @@
+<div class="login-box container">
+	<div class="row login-row">
+		<div class="offset2 span4">
+		    <%= form_tag password_resets_path, :action => 'create', :method => :post do %>
+			    <h5><%= I18n.t('password_reset.title') %></h5>
+			    <%= label_tag :email %>
+			    <%= text_field_tag :email, params[:email] %>
+			    <button class="btn btn-success" type="submit"><%= I18n.t('password_reset.button_reset') %></button>
+		    <% end %>
+		</div>
+	</div>
+</div>
+
+

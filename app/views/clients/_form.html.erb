@@ -1,0 +1,64 @@
+<%= printErrors(client) %>
+
+<div class="row">
+  <%= form_for client, :url=> {:controller => 'clients', :action =>'create'}, :html => {:multipart => true, :class => "form-horizontal"} do |f|%>
+  <div class="control-group">
+    <label class="control-label" for="inputName"><%= t('general.name') %></label>
+    <div class="controls">
+      <%=f.text_field :name, :placeholder => "#{t('general.name')}"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputImage"><%= t('general.image') %></label>
+    <div class="controls">
+      <%=f.file_field :image %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label"><%= t('general.language') %></label>
+    <div class="controls">
+      <%= f.select(:language, options_for_select(language_opts, current_user.language)) %>
+    </div>
+  </div>
+
+    <% it = 1 %>
+    <%= f.fields_for :contacts do |builder| %>
+  <div class="nuevo-contacto">
+      <legend class="span4 offset1 contact-legend">
+        <%= t('contact.contact') %> #<%= it %>
+      </legend>
+      <div class="clearfix">&nbsp;</div>
+      <% it += 1 %>
+    <div class="control-group">
+      <label class="control-label" for="inputName"><%= t('general.name') %></label>
+      <div class="controls">
+        <%=builder.text_field :name, :placeholder => "#{t('general.name')}"%>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputEmail"><%= t('general.email') %></label>
+      <div class="controls">
+        <%=builder.text_field :email, :placeholder => "#{t('general.your')}@#{t('general.e_mail')}.com"%>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputEmail"><%= t('general.skype') %></label>
+      <div class="controls">
+        <%=builder.text_field :skype, :placeholder => "#{t('contact.skype')}"%>
+      </div>
+    </div>
+  </div>
+    <% end %>
+    <div class="control-group span4 offset3 otro-contacto">
+      <a class="btn btn-small" onclick="duplicateDiv();"><i class="icon-plus-sign"></i><%= t('contact.add_new') %></a>
+    </div>
+    <div class="clear-all">
+    <div class="clearfix">&nbsp;</div>
+    </div>
+  <div class="control-group guardar-cliente">
+    <div class="controls">
+      <%= button_tag t('contact.create'), :value => "Crear Cliente", :type => :submit, :class=>"btn btn-large btn-inverse"%>
+    </div>
+  </div>
+  <%end%> <!-- End of form -->
+</div>

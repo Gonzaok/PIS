@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="span8 offset1">
+    <h3><%= t('recent_activity.recent_act') %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="span8 offset1">
+    <% while @list != [] do %>
+      <%list = @list.first
+      @list.shift%>
+      <%= select_activity(list) %>
+      <% if list.created_at != list.updated_at
+        list.updated_at = list.created_at
+        @list.push(list)
+        @list = @list.sort_by {|x| x[:updated_at]}.reverse
+      end %>
+    <% end %>
+  </div>
+</div>

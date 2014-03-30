@@ -1,0 +1,9 @@
+<script src='http://www.google.com/jsapi'></script>
+
+<% chart = draw_chart(spreadsheet, project) %>
+<% if not chart.nil? %>
+<div id="chart_div" style="width: 600px; height: 400px"></div>
+<%= render_chart(chart, 'chart_div') %>
+<% else %>
+<p style="text-align: center"><b><%= I18n.t('general.nothing_found')%></b></p>
+<% end %>

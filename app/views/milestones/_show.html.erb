@@ -1,0 +1,23 @@
+<% @project.milestones.order("date asc").each_with_index do |x,y| %>
+	<div class="row">
+		<div class="span4 offset1 milestone-legend">
+			<%= t('milestone.milestone_number') %><%= y + 1 %>
+		</div>
+	</div>
+	<div class="row hitos-row">
+		<div class="span4 offset2">
+			<h2><%= x.name %>
+			</h2>
+			<small><%= x.description %></small><br />
+			<span class="milestone-date"><%= x.date %></span>
+		</div>
+		<%if !is_contact? && !p.filed %>
+			<div class="span3 offset3 delete-milestone">
+				<%if !is_contact? %>
+					<%= link_to t('general.edit'), edit_milestone_path(x), :class => "btn edit-milestone" %>
+				<% end %>
+				<%= link_to t('general.destroy'), x, method: :delete, data: { confirm: "#{t('general.are_you_sure')}" } %>
+			</div>
+		<% end %>
+	</div>
+<% end %>

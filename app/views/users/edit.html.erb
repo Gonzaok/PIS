@@ -1,0 +1,5 @@
+
+
+<%= render( current_user.is_admin ? (current_user.id == @user.id ? "form" : "form_for_admin") : "form" ) %>
+
+

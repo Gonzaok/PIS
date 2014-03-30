@@ -1,0 +1,156 @@
+<%= printErrors(@project) %>
+
+<div class="row">
+  <%= render :partial => 'moods/show' %> <!-- View Mood -->
+  <div class="span6 project-header">
+    <div class="row">
+      <div class="span6">
+        <h2><%= @project.name %></h2>
+        <span><%= @project.client_name %></span><br/>
+        <small><%= @project.description %></small>
+      </div>
+      <div class="mood-project">
+        <% if @project.moods != [] %>
+          <%= @project.moods.last.comment %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%if current_user.is_admin? and !@project.filed %>
+    <div class="span4">
+      <%= link_to I18n.t('set_mood.button'), {:controller => "set_mood", :action => "create", :id_project => @project.id}, :class => "btn btn-success set-mood-email", :type => "button" %>
+    </div>
+  <%end%>
+</div>
+<br/>
+<div class="span12">
+  <ul class="nav nav-tabs">
+    <li
+      <% if @focus_tab== "1" %>
+        <%= "class=active" %>
+      <% end %>
+     ><a href="#tabs1-pane1" data-toggle="tab"><%= t('project.blackboard') %></a>
+    </li>
+    <li
+      <% if @focus_tab == "2" %>
+        <%= "class=active" %>
+      <% end %>
+      ><a href="#tabs1-pane2" data-toggle="tab"><%= t('milestone.milestones') %></a>
+    </li>
+    <li
+      <% if @focus_tab == "3" %>
+        <%= "class=active" %>
+      <% end %>
+      ><a href="#tabs1-pane3" data-toggle="tab"><%= t('project.statistics') %></a>
+    </li>
+  </ul>
+
+
+  <div class="message_box">
+    <% flash.each   do |name, msg| %>
+      <% if name.to_s == "project_success"  %>
+        <div class="message">
+            <div class="alert alert-success">
+                     <button class="close" data-dismiss="alert" type="button">x</button>
+              <%= content_tag :div, msg%>
+            </div>
+        </div>
+      <% end %>
+
+      <% if name.to_s == "project_error"  %>
+       <div class="message">
+            <div class="alert alert-error">
+                     <button class="close" data-dismiss="alert" type="button">x</button>
+              <%= content_tag :div, msg%>
+            </div>
+        </div>
+      <% end %>
+
+    <% end %>
+  </div>
+
+
+
+
+  <div class="tab-content">
+      <!-- ********* BLACKBOARD'S TAB ********* -->
+      <% if @focus_tab== "1" %>
+      <div class="tab-pane active" id="tabs1-pane1">
+      <%else %>
+       <div class="tab-pane" id="tabs1-pane1">
+      <% end %>
+        <% if !@project.filed %>
+          <div id="flip2" class="offset2">
+            <%if current_user.is_admin? || current_user.type == "Contact" %>
+              <a class="btn btn-small"><%= t('content.add') %> <i class="icon-plus-sign"></i></a>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="clearfix">&nbsp;</div>
+        <div id="panel2" class="offset2">
+          <%= render :partial => 'contents/show_add', :prev => @content %> <!-- Add content -->
+        </div>
+        <% contents(@project).each do |x| %>
+          <div id ="panel-Modificar" class = "offset2" style="display:none">
+            <%= render :partial => 'contents/show_edit', :locals => {:x => x, :errors => false} %> <!-- Modify content -->
+          </div>
+          <div class="row contenido-row">
+            <%= render :partial => 'contents/show', :locals => {:x => x, :p => @project} %> <!-- View content -->
+            <div class="separator"></div>
+            <div class="span6 offset4">
+              <%= render :partial => 'comments/show', :locals => {:x => x, :p => @project, :all => false} %> <!-- View comment -->
+              <hr />
+              <% if !@project.filed %>
+                <%= render :partial => 'comments/new', :locals => {:x => x} %> <!-- Add comment -->
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!-- ********* MILESTONES'S TAB ********* -->
+      <% if @focus_tab== "2" %>
+      <div class="tab-pane active" id="tabs1-pane2">
+      <%else %>
+      <div class="tab-pane" id="tabs1-pane2">
+      <% end %>
+        <div class="row">
+          <% if !@project.filed %>
+            <div id="flip3" class="offset2">
+              <%if current_user.is_admin? %>
+              <a class="btn btn-small"><%= t('milestone.add') %> <i class="icon-plus-sign"></i></a>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="clearfix">&nbsp;</div>
+          <div id="panel3" class="span9 offset2">
+            <%= render :partial => 'milestones/form' %> <!-- Add milestone -->
+          </div>
+          <div>
+            <%= render :partial => 'milestones/show', :locals => {:p => @project} %> <!-- View milestones -->
+          </div>
+        </div>
+      </div>
+      <!-- ********* STATISTICS'S TAB ********* -->
+           <% if @focus_tab== "3" %>
+      <div class="tab-pane active" id="tabs1-pane3">
+      <%else %>
+      <div class="tab-pane" id="tabs1-pane3">
+      <% end %>
+      <%= javascript_include_tag "highcharts" %>
+  	  </br>
+	  <div class="row">
+	  	<div class="span7 offset1">
+	  		<div class="row">
+	   			<div id="chart">
+	       			<%=show_chart()%>
+	       		</div>
+	       	</div>
+	     </div>
+	   <div class="span 3 offset1" align="center">
+	   	 <%=show_moods(@project)%>
+	   </div>
+	  </div>
+	  <br />
+    </div>
+  </div>
+</div>

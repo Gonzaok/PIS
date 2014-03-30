@@ -1,0 +1,39 @@
+<div class="row">
+          <div class="span10 offset1">
+            <div class="page-header">
+              <h1>Welcome to Focus.</h1>
+            </div>
+            <h2><a href="http://www.moove-it.com" class="mooveit-link">Moove-It</a>'s happiness achiever tool</h2>
+          </div>
+        </div>
+        <div class="row hapiness-statement">
+          <div class="span10 offset1">
+            <h1><span class="hapiness-percent"><%= mood_balance %>%</span> of our customers are <span class="hapiness-status">very happy</span></h1>
+          </div>
+        </div>
+        	<%Project.all.each_with_index do |pr,index| %>
+            <% if index%8 == 0%>
+            <div class="row">
+              <div class="span10 offset1">
+		            <div class="span1 happiness-first-col mood">
+            <% else %>
+                <div class="span1 mood">
+            <% end %>
+  		            <div class="client">
+  		                <div class="client_name"><%= pr.client_name %></div>
+  		            </div>
+  		            <div class="face">
+  		            	<%= show_mood(pr,:large) %>
+  		            </div>
+		            </div>
+            <% if index%8 == 7%>
+              </div>
+            </div>
+            <% end %>
+          <%end%>
+        <div class="row hapiness-statement">
+          <div class="span10 offset1">
+            <h2>We want to make you happy too...</h2>
+            <h1 class="pull-right"><a href="http://www.moove-it.com">...Learn more</a></h1>
+          </div>
+        </div>

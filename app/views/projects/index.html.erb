@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="span4 offset1">
+    <h3><%= I18n.t 'project.list'%> <%= link_to I18n.t('project.new'), new_project_path %></h3>
+  </div>
+</div>
+
+<% @projects.each_slice(3) do |slice| %>
+  <div class="row project-row">
+  <% slice.each do |project| %>
+    <div class="span4">
+      <div class="row project-face">
+        <div class="span1">
+          <%= show_mood project %>
+        </div>
+        <div class="span3">
+          <strong>
+            <%= link_to project.name, project %>
+          </strong>
+          <br>
+          <span class="byClient"><%= I18n.t "project.from" %></span>
+          <%= link_to project.client_name, project.client, :class => "clientName"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+<br />

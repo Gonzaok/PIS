@@ -1,0 +1,27 @@
+<h1> <%= t('milestone.list') %> </h1>
+
+<table>
+  <tr>
+    <th><%= t('general.name') %></th>
+    <th><%= t('general.description') %></th>
+    <th><%= t('general.date') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @milestones.each do |milestone| %>
+  <tr>
+    <td><%= milestone.name %></td>
+    <td><%= milestone.description %></td>
+    <td><%= milestone.date %></td>
+    <td><%= link_to t('general.show'), milestone %></td>
+    <td><%= link_to t('general.edit'), edit_milestone_path(milestone) %></td>
+    <td><%= link_to t('general.destroy'), milestone, method: :delete, data: { confirm: "#{t('general.are_you_sure')}" } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('milestone.new'), new_milestone_path %>

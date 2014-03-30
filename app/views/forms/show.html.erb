@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t('form.title') %>:</b>
+  <%= @form.title %>
+</p>
+
+<p>
+  <b><%= t('general.description') %>:</b>
+  <%= @form.description %>
+</p>
+
+<p>
+  <b><%= t('form.admin_url') %>:</b>
+  <%= @form.admin_url %>
+</p>
+
+<p>
+  <b><%= t('form.client_url') %>:</b>
+  <%= @form.client_url %>
+</p>
+
+<p>
+  <b><%= t('general.language') %>:</b>
+  <%= @form.language %>
+</p>
+
+<p>
+  <b><%= t('general.date') %>:</b>
+  <%= @form.date %>
+</p>
+
+
+<%= link_to t('general.edit'), edit_form_path(@form) %> |
+<%= link_to t('general.back'), forms_path %>

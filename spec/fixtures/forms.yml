@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: Form 1
+  description: Description Form 1
+  admin_url: https://docs.google.com/spreadsheet/ccc?key=0AvBAC99RGan7dHJKRzAxMW1YMlpONGdKSDI0Z1ZUUFE
+  client_url: https://docs.google.com/spreadsheet/viewform?pli=1&formkey=dGxjS2hZV1RIVWdKaG9GRThHZG5Ib0E6MQ
+  language: English
+  date: 2012-10-13
+  id: 1
+
+three:
+  title: Form 3
+  description: Description Form 3
+  admin_url: https://docs.google.com/s5
+  client_url: https://docs.google.com/s6
+  language: English
+  date: 2012-10-14
+  id: 2

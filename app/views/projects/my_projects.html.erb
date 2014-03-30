@@ -1,0 +1,28 @@
+<section id="Proyectos">
+  <div class="row">
+    <div class="span4">
+      <h3><%= t('project.projects') %></h3>
+    </div>
+  </div>
+  <div class="row project-row">
+    <% contador = 0 %>
+    <%@projects.each do |project|%>
+    <div class="span4">
+      <div class="row project-face">
+        <div class="span1">
+          <% mood = project.moods.last%>
+          <%= show_mood(project)%>
+        </div>
+        <div class="span3">
+          <strong><%= link_to project.name, :controller => "projects", :action => "show", :id => project.id %></strong><br><span class="byClient">de</span> <a class="clientName" href="#"> <%= project.client_name %> </a>
+        </div>
+      </div>
+    </div>
+    <% contador = contador + 1
+        if contador == 3
+          contador = 0 %>
+          <br><br><br>
+        <% end %>
+    <% end %>
+  </div>
+</section>

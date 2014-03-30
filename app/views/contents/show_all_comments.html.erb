@@ -1,0 +1,24 @@
+<% if !@project.filed %>
+  <div id ="panel-Modificar" class = "offset2" style="display:none">
+    <%= render :partial => 'contents/show_edit', :locals => {:x => @content, :errors => false} %> <!-- Modify content -->
+  </div>
+<% end %>
+
+<div class="row contenido-row">
+
+  <%= render :partial => 'contents/show', :locals => {:x => @content, :p => @project} %> <!-- View content -->
+
+  <div class="separator"></div>
+
+  <div class="span6 offset4">
+
+    <%= render :partial => 'comments/show', :locals => {:x => @content, :p => @project, :all => true} %>
+
+    <% if !@project.filed %>
+      <hr />
+      <%= render :partial => 'comments/new', :locals => {:x => @content} %> <!-- Add comment -->
+    <% end %>
+
+  </div>
+
+</div>

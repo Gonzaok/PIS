@@ -1,0 +1,68 @@
+
+  <% if project.errors.any? %>
+    <%= printErrors(project) %>
+  <% end %>
+
+  <div class="row">
+    <%= form_for project, :url=> {:controller => 'projects', :action =>'create'}, :html => { :class => "form-horizontal"} do |f|%>
+    <div class="control-group">
+      <label class="control-label">
+        <%=  t('general.name') %>
+      </label>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">
+        <%=  t('general.client', :count => 1)%>
+      </label>
+      <div class="controls">
+        <%= f.collection_select( :client_id, Client.all, :id, :name, options = { :prompt => "#{t('project.select_client')}" } ) =%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" >
+      <%=  t('general.description') %>
+      </label>
+      <div class="controls">
+        <%= f.text_area :description, :size => "3" %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">
+        <%=  t('date.start') %>
+      </label>
+      <div class="controls">
+        <%fechaAux = Date.current%>
+        <div class="input-append date focus-datepicker" id="input-inicio" data-date=<%=fechaAux.strftime("%d-%m-%Y")%> data-date-format="dd-mm-yyyy">
+          <%= f.text_field :start_date, :class => "span2",  :readonly=>"readonly", :value => fechaAux.strftime("%d-%m-%Y")%>
+          <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">
+        <%= t('date.end') %>
+      </label>
+      <div class="controls">
+        <%fechaAux = Date.current + 1%>
+        <div class="input-append date focus-datepicker" id="input-fnicio" data-date=<%=fechaAux.strftime("%d-%m-%Y")%> data-date-format="dd-mm-yyyy">
+          <%= f.text_field :end_date, :class => "span2", :readonly=>"readonly", :value => fechaAux.strftime("%d-%m-%Y")%>
+          <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group guardar-cliente">
+      <div class="controls">
+      <%= button_tag t('project.new'), :type => :submit, :class=>"btn btn-large btn-inverse"%>
+      </div>
+    </div>
+
+<% end %>
+  </div>

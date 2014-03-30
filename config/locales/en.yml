@@ -1,0 +1,321 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  general:
+    home: Home
+    search: Search projects, clients, etc
+    searcher: Search
+    description: Description
+    name: Name
+    in: in
+    client:
+      one: Client
+      other: Clients
+    edit: Edit
+    date: Date
+    back: Back
+    show: Show
+    image: Image
+    destroy: Destroy
+    delete: Delete
+    nothing_found: No results
+    cancel: Cancel
+    message: Message
+    are_you_sure: Are you sure?
+    language: Language
+    show: Show
+    or: or
+    your: your
+    email: Email
+    e_mail: email
+    contacts: Contacts
+    project:
+      one: Project
+      other: Projects
+    optional: Optional
+    file: File
+    modify: modify
+    subject: Subject
+    invalid: Invalid or empty field given
+    record_not_found: Record not found
+    access_denied: Access denied
+
+  language:
+    en: English
+    es: Spanish
+
+  contact:
+    create: Create contact
+    edit: Edit contact
+    edit_self: Edit my information
+    contact: Contact
+    skype: Skype
+    add_new: Add new contact
+    create_success: Contact was successfully created
+    update_success: Contact was successfully updated
+    error_skype: Contact already exists with that skype
+    error_email: Invalid email format
+    error_lenguage: Debe especificar el lenguaje del contacto
+    cup: Contact
+    toc: was added to
+    cmod: Contact
+    ctoc: was modified for client
+    old : Inactive contact
+
+  milestone:
+    create: Create Milestone
+    new: New Milestone
+    edit: Edit milestone
+    list: Milestones
+    add: Add milestone
+    milestones: Milestones
+    milestone_number: 'Milestone #'
+    validates_name: You must specify the name of the Milestone
+    validates_description: It should give a description of the Milestone
+    create_success: Milestone was successfully created
+    update_success: Milestone was successfully updated
+    edit: Edit milestone
+    destroy_success: Milestone was succesfully destroyed
+    error_create: Incomplete fields
+    mup: New milestone added to
+    mmod: Milestone was modified on
+    date_past: Cannot enter a date prior to the current date
+
+  project:
+    create: Create project
+    new: New project
+    edit: Edit project
+    list: All projects
+    projects: Projects
+    from: of
+    select_client: Select a client
+    blackboard: Blackboard
+    statistics: Statistics
+    validates_name: You must specify the project's name
+    validates_description: You must specify the project's description
+    validates_uniqueness: There is already a project with that name
+    validates_client: You must select a client
+    validates_start_date: You must select a start date for the Project
+    validates_end_date: You must select an end date for the Project
+    validates_end_date_after_start_date: The End Date can not be before the Start Date
+    milestone_start_name: Start
+    milestone_start_desc: Start of the project
+    milestone_end_name: End
+    milestone_end_desc: End of the project
+    create_success: Project was successfully created
+    update_success: Project was successfully updated
+    my_projects: My projects
+    pup: New project created
+    filed: Project filed
+
+  form:
+    title: Title
+    forms: Forms
+    new: New form
+    create: Create form
+    edit: Edit form
+    preview: Preview
+    send: Send
+    italian: Italian
+    list: All forms
+    admin_url: Admin url
+    client_url: Client url
+    create_success: Form was successfully created
+    update_success: Form was successfully updated
+    validates_name: You must specify the forms's name
+    validates_description: You must give a description for the form
+    validates_description: You must specify the project's description
+    validates_admin_url_presence: A link for admins must be given
+    validates_client_url_presence: A link for the client must be given
+    validate_url_format: Incorrect URL given
+    email_success: Emails sent successfully
+    summary: Show summary
+    summary_general: Show general summary
+    fup: New form added
+    summary_results: Results for
+    access_error: Errors encountered while accessing the form
+    too_long: "20 characters is the maximum allowed for the title"
+
+  mood:
+    change: Change mood
+    new: New mood
+    happy: Happy
+    satisfied: Satisfied
+    neutral: Neutral
+    sad: Sad
+    angry: Angry
+    create_success: Mood was successfully created
+    update_success: Mood was successfully updated
+    create_error: Mood could not be updated
+    cup: change his mood to
+    oncup: over
+
+  comment:
+    comment: Comment
+    add: Add comment
+    annotate: Comment
+    view: View comments
+    more: See more
+    create_success: Comment was successfully created
+    update_success: Comment was successfully updated
+    error_null: You must enter at least one character in the comment
+    delete: Delete Comment?
+    empty: Comment field is empty
+    error_create: Incomplete fields
+    cup: add a comment over
+    cmod: modified a comment over
+
+  content:
+    content: Content
+    add: Add content
+    modify: Modify content
+    summary: Summary
+    type: Type
+    chat: Chat
+    conversation: Conversation
+    appreciation: Appreciation
+    message: Message
+    all_message: Content messages
+    criticism: Criticism
+    other: Other
+    visibility: Visibility
+    visibility_success: Visibility updated successfully
+    visibility_error: Error while modifying visibility
+    validates_summary: You must include a summary for the content
+    validates_content: You must include a content
+    added: added a
+    create_success: Content was successfully created
+    update_success: Content was successfully updated
+    error_update: Incomplete fields in update
+    error_create: Incomplete fields
+    cup: add a
+    oncup: over
+    cmod: modified a
+    too_long: Summary is too long
+
+  client:
+    clients: Clients
+    list: List clients
+    create: Create client
+    modify: Update
+    new: New client
+    validates_presence_email: You must specify the client's name
+    validates_uniqueness_email: There is already a client with that name
+    validates_language: You must specify the client's language
+    create_success: Client was successfully created
+    update_success: Client successfully updated
+    repeated_contact_mail: The email should be different for each contact
+    edit: Edit Client
+    empty_name: You must specify the contact's name
+    non_unique_name: There is a client with the same name
+    empty_language: You must specify the client's language
+    my_client: My Client
+    cup: New client created
+    cmod: Client modified
+
+  user:
+    create: Create User
+    users: Users
+    change_profile: Edit my profile
+    logout: Logout
+    email: E-Mail
+    name: Name
+    view: Moove It User
+    new: New Contact
+    skype: Skype
+    password: Password
+    password_confirmation: Repeat password
+    change_role_staff: Staff
+    change_role_admin: Admin
+    update_success: Your profile has been successfully modified
+    incorrect_password: Incorrect password
+    error_update: Incomplete fields in update
+    validates_presence_email: You must specify the user's email
+    validates_uniqueness_email: There is already a user with the same email
+    validates_format_email: The email format is not valid
+    validates_name: You must specify the user's name
+    validates_skype: You must specify the user's skype
+    validates_uniqueness_skype: There is already a user with the same skype
+    validates_repeated_email: You cannot enter two contacts with the same e-mail
+    validates_repeated_skype: You cannot enter two contacts with the same skype
+    validates_confirmation_of_password: The password does not match the confirmation
+    activities: Activities
+    empty_password: Empty password
+
+  date:
+    start: Start date
+    end: End date
+
+  session:
+    login_email_error: Incorrect e-mail or password
+    login_password_error: Incorrect e-mail or password
+    login_openid_error: Can not connect to the server
+    login_openid: You can also login with OpenID
+    email: E-mail
+    password: Password
+    remember_me: Remember me
+    forgot_password: Forgot your password?
+    login: Login
+
+  visibility:
+    client: Client
+    staff: Staff
+
+  password_reset:
+    send_email: An Email has been sent with password reset instructions
+    success: The password has been successfuly changed
+    error: The time to change the password has been expired
+    url_reset: To reset your password, click the URL below
+    url_notice: If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+    title: Write your e-mail and we will send you a link to reset your password
+    button_reset: Reset password
+
+  set_mood:
+    send_email: An Email has been sent to all contacts asking about their feelings
+    button: Send Mood Email
+    send: Send
+    happy: I am very happy so far!
+    satisfied: I am good
+    neutral: I am just fine
+    sad: I am worried
+    angry: I am disapointed
+    send_email: An Email has been sent
+    how_are: how are you?
+    in_case: In case you didn't know we have a platform called
+    made_just: made just to make you happy
+    satisfaction: Your satisfaction is extremely important to us, so we would like to have your "how are you right now" kind of feedback about the project
+    clicking: Clicking on an image will open a new window to
+    edit_subscritpion: Edit your subscription
+    unsubscribe: Unsubscribe
+    this_is: This is completely optional, but can you tell us why you are
+    we_would: We would appreciate it.
+    cant_send_email: The email can't be send.
+    send_mood: Send Comment
+    comment: Comment
+
+  recent_activity:
+    recent_act_mail_subject: moove-iT - Recent Activity
+    recent_act: Recent Activity
+    view_full_list: View full list
+    no_activity: There was not activity this week.
+
+  edit_profile:
+    change_password: Change password
+    current_password: Current password
+    new_password: New password
+    confirm_password: Password confirmation
+
+  search:
+    result: "%{total} results in %{time} seconds"
+
+  send_password:
+    subject: Password for access to your Focus account
+    message: "Your new password is %{pass}"
+    welcome: "Hi %{pass}, welcome to Focus"
+
+  send_form:
+    hi: HI
+    goodbye: Thank you and have a great day!
+    body1: "To help us further improve our services, please complete this "
+    body2: ", regarding the project "

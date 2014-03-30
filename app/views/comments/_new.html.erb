@@ -1,0 +1,6 @@
+<%= form_for :comment, :url => {:controller => :comments, :action => :create, :id => x} do |f| %>
+  <label><%= t('comment.add') %>:</label>
+    <%= f.text_area :comment, :rows => 3%><br/>
+	  <%= f.submit t('comment.annotate'), :class => "btn btn-inverse" %>
+
+<% end %>

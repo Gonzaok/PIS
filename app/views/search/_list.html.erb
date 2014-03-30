@@ -1,0 +1,108 @@
+<div class="row">
+	<div class="span7 offset1">
+		<h4> <small><%= results(@time,@projects, @clients, @users,@contents) %> </small></h4>
+	</div>
+</div>
+
+<% if @users %>
+
+  <div class="row">
+    <div class="span5 offset1">
+      <h3> <%= I18n.t('user.users') %> </h3>
+    </div>
+  </div>
+    <% @users.each do |user| %>
+  <div class="row fila-proyecto">
+    <div class="span4 offset1">
+      <div class="row nombre-contacto">
+        <div class="span1">
+          <%= get_gravatar(user,40) %>
+        </div>
+        <div class="span3">
+          <strong>
+          <%= link_to user.name , :controller => 'users', :action => 'show', :id => user.id %>
+          </strong><br>
+          <small><%= user.email %></small>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% end %>
+
+<% if @clients %>
+
+<section id="Clientes">
+  <div class="row">
+    <div class="span5 offset1">
+      <h3><%= I18n.t('client.clients') %></h3>
+    </div>
+  </div>
+<% @clients.all.each do |c| %>
+    <div class="row fila-proyecto">
+      <div class="span6 offset1">
+        <div class="row cliente-proyecto-carita">
+          <div class="span1">
+             <%= image_client(c,:small) %>
+          </div>
+          <div class="span3 nombre-proyecto">
+             <strong> <%= link_to c.name, c %> </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</section>
+<% end %>
+
+<% if @projects %>
+
+<section id="Proyectos">
+  <div class="row">
+    <div class="span5 offset1">
+      <h3><%= t('project.projects')  %></h3>
+    </div>
+  </div>
+  <%@projects.each do |project|%>
+     <div class="row fila-proyecto">
+      <div class="span6 offset1">
+        <div class="row cliente-proyecto-carita">
+          <div class="span1">
+             <% mood = project.moods.last%>
+          	 <%= show_mood(project)%>
+          </div>
+          <div class="span3 nombre-proyecto">
+             <strong><%= link_to project.name, :controller => "projects", :action => "show", :id => project.id %></strong><br><span class="byClient">de</span> <a class="clientName" href="#"> <%= project.client_name %> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</section>
+
+<% end %>
+
+
+<% if @contents %>
+
+<section id="Proyectos">
+  <div class="row">
+    <div class="span5 offset1">
+      <h3><%= t('content.content')  %></h3>
+    </div>
+  </div>
+  <%@contents.each do |result|%>
+     <div class="row fila-proyecto">
+      <div class="span6 offset1">
+        <div class="span1">
+        	 <%=star_ranking_static(result)%>
+        </div>
+        <div class="span3 nombre-proyecto">
+           <%= link_to result.summary, {:controller => 'contents', :action => 'show_all_comments',  :id => result.id} %> <%= t('general.in') %> <%= result.project.name%>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</section>
+
+<% end %>

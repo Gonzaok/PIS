@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+contact:
+  id: 1
+  email: con1@cli1.com
+  name: Contact 1
+  skype: Contact 1
+  is_admin: false
+  client_id: 1
+  language: English
+  type: Contact
+  en_password: 335c5609f5c1ffaf15b138a8b425866e3e933a08503102bbd3f667068dc8affb
+  salt: 21e9341e4d857b490e62a5e8094478488da4b37f74faf5dccbe1d865793e060c
+  password_reset_token: 123456789
+
+mooveit:
+  id: 2
+  email: user1@mooveit.com
+  name: MooveIt 1
+  skype: MooveIt 1
+  is_admin: false
+  type: MooveitUser
+  language: English
+  en_password: 335c5609f5c1ffaf15b138a8b425866e3e933a08503102bbd3f667068dc8affb
+  salt: 21e9341e4d857b490e62a5e8094478488da4b37f74faf5dccbe1d865793e060c
+  password_reset_token: 1234567890
+
+admin:
+  id: 3
+  email: admin@admin.com
+  name: Admin
+  skype: admin
+  is_admin: true
+  type: MooveitUser
+  en_password: admin
+  salt: admin
+  
+admin2:
+  id: 4
+  email: admin2@admin.com
+  name: Admin2
+  skype: admin2
+  is_admin: true
+  type: MooveitUser
+  en_password: admin2
+  salt: admin2

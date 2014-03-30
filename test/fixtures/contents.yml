@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  summary: MyText
+  content: MyText
+  access_moove_it: false
+  access_client: false
+  type: 
+  ranking: 1
+
+two:
+  summary: MyText
+  content: MyText
+  access_moove_it: false
+  access_client: false
+  type: 
+  ranking: 1

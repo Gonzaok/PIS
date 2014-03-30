@@ -1,0 +1,49 @@
+<%= javascript_include_tag "forms" %>
+<%= form_for @form, :url=> {:controller => 'forms', :action =>'create'}, :html => { :class => "form-horizontal"} do |f|%>
+
+  <% if @form.errors.any? %>
+    <%= printErrors(@form) %>
+  <% end %>
+
+	<div class="control-group">
+		<label class="control-label"> <%= I18n.t 'form.title' %> </label>
+		<div class="controls">
+			<%= f.text_field :title %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label"><%= t('form.admin_url') %></label>
+		<div class="controls">
+			<%= f.url_field :admin_url %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label"><%= t('form.client_url') %></label>
+		<div class="controls">
+			<%= f.url_field :client_url%>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label"><%= I18n.t 'general.description' %></label>
+		<div class="controls">
+			<%= f.text_area :description, :size => "60x5" %>
+		</div>
+	</div>
+
+    <div class="control-group">
+		  <label class="control-label"><%= I18n.t 'general.language' %></label>
+		  <div class="controls">
+			  <%= f.select(:language, options_for_select(language_opts)) %>
+		  </div>
+    </div>
+
+  <div class="control-group guardar-cliente">
+    <div class="controls">
+    	<%= f.submit t('form.create'), :class=>"btn btn-large btn-inverse" %>
+    </div>
+  </div>
+
+<% end %>

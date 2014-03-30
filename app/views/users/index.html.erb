@@ -1,0 +1,34 @@
+
+  <div class="row">
+    <div class="span5 offset1">
+      <h3> <%= I18n.t('user.users') %> </h3>
+    </div>
+  </div>
+    <% @users.each do |user| %>
+  <div class="row fila-proyecto">
+    <div class="span10 offset1">
+      <div class="row nombre-contacto">
+        <div class="span1">
+          <%= get_gravatar(user,40) %>
+        </div>
+        <div class="span3">
+          <strong>
+          <%= link_to user.name , :controller => 'users', :action => 'show', :id => user.id %>
+          </strong><br>
+          <small><%= user.email %></small>
+        </div>
+        <div class="btn-toolbar contact-actions edit-element">
+          <% if current_user.is_admin %>
+            <%  if current_user.email != user.email %>
+              <% if user.is_admin %>
+                 <%= link_to I18n.t('user.change_role_staff'), {:controller => "users", :action => "toggle_admin", :id => user.id}, :class=> "btn btn-success" %>
+              <% else %>
+                 <%= link_to I18n.t('user.change_role_admin'), {:controller => "users", :action => "toggle_admin", :id => user.id}, :class=> "btn btn-info" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

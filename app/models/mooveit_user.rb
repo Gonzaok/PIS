@@ -1,0 +1,2 @@
+class MooveitUser < User
+end
